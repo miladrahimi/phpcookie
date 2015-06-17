@@ -1,5 +1,5 @@
 {
-    "name": "neatplex/phpsession",
+    "name": "neatplex/phpcookie",
     "description": "Free PHP cookie tools for neat and powerful projects!",
     "keywords": ["Cookie", "Cookies", "Security", "Cookie Security"],
     "homepage": "http://phpcookie.neatplex.com",
