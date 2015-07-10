@@ -1,6 +1,7 @@
 <?php namespace MiladRahimi\PHPCookie;
 
 use MiladRahimi\PHPCrypt\Crypt;
+use MiladRahimi\PHPCrypt\CryptInterface;
 
 /**
  * Class Cookie
@@ -19,27 +20,18 @@ class Cookie
      *
      * @var Crypt
      */
-    private static $crypt;
+    private $crypt;
 
     /**
-     * @return Crypt
-     */
-    public static function getCrypt()
-    {
-        return self::$crypt;
-    }
-
-    /**
-     * Set Crypt object
+     * The singleton instance of the class
      *
-     * @param Crypt $crypt
-     * @throws InvalidArgumentException
+     * @var Cookie
      */
-    public static function setCrypt($crypt)
+    private static $instance;
+
+    private function __construct()
     {
-        if (!isset($crypt) || !$crypt instanceof Crypt)
-            throw new InvalidArgumentException("Crypt must be instance of MiladRahimi\\PHPCrypt\\Crypt class");
-        self::$crypt = $crypt;
+        // Not implemented yet!
     }
 
     /**
@@ -56,8 +48,8 @@ class Cookie
      * @throws InvalidArgumentException
      * @throws PHPCookieException
      */
-    public static function set($name, $value, $expire = null, $path = null, $domain = null, $secure = null,
-                               $httponly = null)
+    public function set($name, $value, $expire = null, $path = null, $domain = null, $secure = null,
+                        $httponly = null)
     {
         if (!isset($name) && !is_scalar($name) && !method_exists($name, "__toString"))
             throw new InvalidArgumentException("Name must be a scalar|string value");
@@ -73,9 +65,9 @@ class Cookie
             throw new InvalidArgumentException("Secure must be a boolean value");
         if (!isset($httponly) && !is_null($httponly) && !is_bool($httponly))
             throw new InvalidArgumentException("HttpOnly must be a boolean value");
-        if (!isset(self::$crypt))
+        if (!isset($this->crypt))
             throw new PHPCookieException("Crypt object is not set");
-        $value = self::$crypt->encrypt($value);
+        $value = $this->crypt->encrypt($value);
         return setcookie($name, $value, $expire, $path, $domain, $secure, $httponly);
     }
 
@@ -87,15 +79,43 @@ class Cookie
      * @throws InvalidArgumentException
      * @throws PHPCookieException
      */
-    public static function get($name)
+    public function get($name)
     {
         if (!isset($name) || (!is_scalar($name) && !method_exists($name, "__toString")))
             throw new InvalidArgumentException("Name must be a scalar|string value");
         if (!isset($_COOKIE[$name]))
             throw new PHPCookieException("The cookie value not exists");
-        if (!isset(self::$crypt))
+        if (!isset($this->crypt))
             throw new PHPCookieException("Crypt object is not set");
-        return self::$crypt->decrypt($_COOKIE[$name]);
+        return $this->crypt->decrypt($_COOKIE[$name]);
+    }
+
+    /**
+     * @return Crypt
+     */
+    public function getCrypt()
+    {
+        return $this->crypt;
+    }
+
+    /**
+     * @param Crypt $crypt
+     */
+    public function setCrypt($crypt)
+    {
+        if (!isset($crypt) || !$crypt instanceof CryptInterface)
+            throw new InvalidArgumentException("Invalid crypt object");
+        $this->crypt = $crypt;
+    }
+
+    /**
+     * @return Cookie
+     */
+    public static function getInstance()
+    {
+        if (!static::$instance instanceof Cookie)
+            static::$instance = new Cookie();
+        return static::$instance;
     }
 
 
