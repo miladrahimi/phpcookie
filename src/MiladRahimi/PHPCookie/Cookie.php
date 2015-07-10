@@ -1,6 +1,6 @@
-<?php namespace Neatplex\PHPCookie;
+<?php namespace MiladRahimi\PHPCookie;
 
-use Neatplex\PHPCrypt\Crypt;
+use MiladRahimi\PHPCrypt\Crypt;
 
 /**
  * Class Cookie
@@ -8,7 +8,7 @@ use Neatplex\PHPCrypt\Crypt;
  * Crypt class is the main package class.
  * This class is static and manipulates cookies
  *
- * @package Neatplex\PHPRouter
+ * @package MiladRahimi\PHPRouter
  *
  * @author Milad Rahimi <info@miladrahimi.com>
  */
@@ -38,7 +38,7 @@ class Cookie
     public static function setCrypt($crypt)
     {
         if (!isset($crypt) || !$crypt instanceof Crypt)
-            throw new InvalidArgumentException("Crypt must be instance of Neatplex\\PHPCrypt\\Crypt class");
+            throw new InvalidArgumentException("Crypt must be instance of MiladRahimi\\PHPCrypt\\Crypt class");
         self::$crypt = $crypt;
     }
 

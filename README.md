@@ -14,23 +14,23 @@ If you are not familiar with Composer, The article
 can be useful.
 After installing Composer, go to your project directory and run following command there:
 ```
-php composer.phar require neatplex/phpcrypt
+php composer.phar require miladrahimi/phpcrypt
 ```
 Or if you have `composer.json` file already in your application,
 you may add this package to your application requirements
 and update your dependencies:
 ```
 "require": {
-    "neatplex/phpcookie": "~1.0"
+    "miladrahimi/phpcookie": "~1.0"
 }
 ```
 ```
 php composer.phar update
 ```
-#### Using VendorLoader
-If you don't use Composer you may use [VendorLoader](https://github.com/miladrahimi/vendorloader).
+#### Using PHPVendor
+If you don't use Composer you may use [VendorLoader](https://github.com/miladrahimi/phpvendor).
 Copy `src` directory content in your application vendor directory,
-then include the `vendorloader.php` in your application.
+then include the `phpvendor.php` in your application.
 #### Manually
 You can use your own autoloader as long as it follows [PSR-0](http://www.php-fig.org/psr/psr-0) or
 [PSR-4](http://www.php-fig.org/psr/psr-4) standards.
@@ -38,13 +38,13 @@ In this case you can put `src` directory content in your vendor directory.
 
 ### Getting Started
 It's so easy to use!
-It uses [PHPCrypt](https://github.com/neatplex/phpcrypt) package to encrypt and decrypt data.
+It uses [PHPCrypt](https://github.com/miladrahimi/phpcrypt) package to encrypt and decrypt data.
 So if you use Composer everything will be ok otherwise you must download this package too.
 After installation of this package you must inject it to Cookie class.
 See the example to grasp all what you need to know:
 ```
-use Neatplex\PHPCookie\Cookie;
-use Neatplex\PHPCrypt\Crypt;
+use MiladRahimi\PHPCookie\Cookie;
+use MiladRahimi\PHPCrypt\Crypt;
 
 $crypt = new Crypt();
 $crypt->setKey("68aa9534054f7a370853818743090ec4");
@@ -71,8 +71,8 @@ Here are methods and messages:
 *	[Milad Rahimi](http://miladrahimi.com)
 
 ## Official homepage
-*   [PHPCookie](http://phpcookie.neatplex.com) (Soon!)
+*   [PHPCookie](http://miladrahimi.github.io/phpcookie)
 
 ## License
-PHPCookie is created by [Neatplex](http://neatplex.com)
+PHPCookie is created by [MiladRahimi](http://miladrahimi.com)
 and released under the [MIT License](http://opensource.org/licenses/mit-license.php).
