@@ -57,7 +57,7 @@ $project_key = "3303a3f4640d601566c02cb8fe16d96e";
 $crypt = new Crypt();
 $crypt->setKey($project_key);
 
-$cookie = Cookie::getInstance();
+$cookie = new Cookie();
 $cookie->setCrypt($crypt);
 
 $cookie->set("Singer", "Pink Floyd");

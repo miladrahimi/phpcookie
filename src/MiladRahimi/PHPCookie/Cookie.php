@@ -23,18 +23,6 @@ class Cookie
     private $crypt;
 
     /**
-     * The singleton instance of the class
-     *
-     * @var Cookie
-     */
-    private static $instance;
-
-    private function __construct()
-    {
-        // Not implemented yet!
-    }
-
-    /**
      * Set new cookie value
      *
      * @param string $name
@@ -107,16 +95,5 @@ class Cookie
             throw new InvalidArgumentException("Invalid crypt object");
         $this->crypt = $crypt;
     }
-
-    /**
-     * @return Cookie
-     */
-    public static function getInstance()
-    {
-        if (!static::$instance instanceof Cookie)
-            static::$instance = new Cookie();
-        return static::$instance;
-    }
-
 
 }
