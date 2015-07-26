@@ -80,7 +80,7 @@ Here are methods and messages:
 ## Contributors
 *	[Milad Rahimi](http://miladrahimi.com)
 
-## Official homepage
+## Homepage
 *   [PHPCookie](http://miladrahimi.github.io/phpcookie)
 
 ## License
