@@ -5,8 +5,7 @@ use MiladRahimi\PHPCrypt\CryptInterface;
 
 /**
  * Class Cookie
- * Crypt class is the main package class.
- * This class is static and manipulates cookies
+ * Cookie class manipulates cookies
  *
  * @package MiladRahimi\PHPRouter
  * @author Milad Rahimi <info@miladrahimi.com>
@@ -30,7 +29,7 @@ class Cookie
      * @param string|null $domain
      * @param bool|null $secure
      * @param bool|null $httponly
-     * @return bool
+     * @return bool : success
      * @throws InvalidArgumentException
      * @throws PHPCookieException
      */
