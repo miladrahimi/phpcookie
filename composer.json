@@ -22,6 +22,8 @@
         "miladrahimi/phpcrypt": "^1.1"
     },
     "autoload": {
-        "psr-4": {"MiladRahimi\\": "src/MiladRahimi/"}
+        "psr-4": {
+        	"MiladRahimi\\": "src/MiladRahimi/"
+        }
     }
 }
