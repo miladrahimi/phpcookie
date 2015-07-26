@@ -22,7 +22,7 @@ you may add this package to your application requirements
 and update your dependencies:
 ```
 "require": {
-    "miladrahimi/phpcookie": "~1.4"
+    "miladrahimi/phpcookie": "~1.5"
 }
 ```
 ```
