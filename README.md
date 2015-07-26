@@ -15,10 +15,6 @@ If you are not familiar with Composer, The article
 can be useful.
 After installing Composer, go to your project root directory and run following command there:
 ```
-php composer.phar require miladrahimi/phpcrypt
-```
-Windows:
-```
 composer require miladrahimi/phpcookie
 ```
 Or if you have `composer.json` file already in your application,
@@ -26,13 +22,9 @@ you may add this package to your application requirements
 and update your dependencies:
 ```
 "require": {
-    "miladrahimi/phpcookie": "~1.0"
+    "miladrahimi/phpcookie": "~1.4"
 }
 ```
-```
-php composer.phar update
-```
-Windows:
 ```
 composer update
 ```
